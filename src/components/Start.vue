@@ -4,6 +4,13 @@
   <lrMenu></lrMenu>
   <lrHeader></lrHeader>
   <!-- services -->
+  <div class="hej">
+    <p>{{ count }}</p>
+    <p>
+      <button @click="increment">+</button>
+      <button @click="decrement">-</button>
+    </p>
+  </div>
   <lrServices></lrServices>
   <!--Facebook post-->
   <!--lrFacebookPost></lrFacebookPost-->
@@ -45,6 +52,19 @@ import lrFacebookPost from '@/components/lrFacebookPost.vue'
 
 export default {
   name: 'Start',
+  computed: {
+    count () {
+      return this.$store.state.count
+    }
+  },
+  methods: {
+    increment () {
+      this.$store.commit('increment')
+    },
+    decrement () {
+      this.$store.commit('decrement')
+    }
+  },
   components: {
     contactBubble,
     lrMenu,

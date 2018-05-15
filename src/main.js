@@ -8,6 +8,7 @@ import 'vue-nav-tabs/themes/vue-tabs.css'
 import VueScrollTo from 'vue-scrollto'
 import VeeValidate from 'vee-validate'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import store from './store/index'
 
 // require styles
 import 'swiper/dist/css/swiper.css'
@@ -26,6 +27,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })
