@@ -1,7 +1,7 @@
 <template>
 <div>
     <div  id="sectionServices" class="section container">
-        <h2>Kompetens och engagemang som ger resultat</h2>
+        <h2>{{ this.servicesContent.servicesTitle }}</h2>
         <hr class="lrHeaderLine">
 
         <div class="services">
@@ -27,16 +27,37 @@
                 </div>
             </a>
         </div>
-            <p class="mainText">
-                <strong>Vad behöver du och ditt företag hjälp med?</strong><br/>Vi på LR Revision & Redovisning i Örebro har stor kunskap och lång erfarenhet från en mängd olika branscher. Hos oss får du ett personligt och professionellt bemötande när vi hjälper dig att förvalta och utveckla ditt företag.
-            </p>
+          <p><strong>{{ this.servicesContent.servicesSubheading }}</strong></p>
+          <p class="mainText"
+          v-html="this.servicesContent.servicesParagraph"
+          ></p>
     </div>
 </div>
 </template>
 
 <script>
 export default {
-  name: 'lrServices'
+  name: 'lrServices',
+  computed: {
+    pages () {
+      return this.$store.state.pages
+    },
+    servicesContent () {
+      if (this.pages.length > 0) {
+        return {
+          servicesTitle: this.pages[1].acf.services_title,
+          servicesSubheading: this.pages[1].acf.services_subheading,
+          servicesParagraph: this.pages[1].acf.services_paragraph
+        }
+      } else {
+        return {
+          servicesTitle: '...',
+          servicesSubheading: '...',
+          servicesParagraph: '...'
+        }
+      }
+    }
+  }
 }
 </script>
 
