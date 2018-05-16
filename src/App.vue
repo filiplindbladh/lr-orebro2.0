@@ -6,12 +6,14 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  mounted () {
+    this.$store.dispatch('getPages')
+  }
 }
 </script>
 
 <style lang="scss">
-    @import '../node_modules/bulma/css/bulma.css';
     body {
       font-family: Oxygen;
     }

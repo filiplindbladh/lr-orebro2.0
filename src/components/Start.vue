@@ -4,19 +4,12 @@
   <lrMenu></lrMenu>
   <lrHeader></lrHeader>
   <!-- services -->
-  <div class="hej">
-    <p>{{ count }}</p>
-    <p>
-      <button @click="increment">+</button>
-      <button @click="decrement">-</button>
-    </p>
-  </div>
   <lrServices></lrServices>
   <!--Facebook post-->
   <!--lrFacebookPost></lrFacebookPost-->
 
   <!-- first contact banner -->
-  <lrContactBanner bannerText="Långsiktiga lösningar för traditionella eller digitala företag" :backgroundImage="true"></lrContactBanner>
+  <lrContactBanner v-bind:bannerText="this.bannerTexts.bannerOne" :backgroundImage="true"></lrContactBanner>
 
   <!-- the staff on LR-orebro -->
   <lrStaff></lrStaff>
@@ -25,7 +18,7 @@
   <!--lrReviews></lrReviews-->
 
  <!-- second contact banner -->
- <lrContactBanner bannerText="Behöver ni hjälp att utveckla ert företag?" :backgroundImage ="false"></lrContactBanner>
+ <lrContactBanner v-bind:bannerText="this.bannerTexts.bannerTwo" :backgroundImage ="false"></lrContactBanner>
 
   <!-- How to get there -->
   <lrMaps></lrMaps>
@@ -52,18 +45,29 @@ import lrFacebookPost from '@/components/lrFacebookPost.vue'
 
 export default {
   name: 'Start',
+  data () {
+    return {
+    }
+  },
   computed: {
-    count () {
-      return this.$store.state.count
+    pages () {
+      return this.$store.state.pages
+    },
+    bannerTexts () {
+      if (this.pages.length > 0) {
+        return {
+          bannerOne: this.pages[1].acf.contactbanner_heading_one,
+          bannerTwo: this.pages[1].acf.contactbanner_heading_two
+        }
+      } else {
+        return {
+          bannerOne: '...',
+          bannerTwo: '...'
+        }
+      }
     }
   },
   methods: {
-    increment () {
-      this.$store.commit('increment')
-    },
-    decrement () {
-      this.$store.commit('decrement')
-    }
   },
   components: {
     contactBubble,
