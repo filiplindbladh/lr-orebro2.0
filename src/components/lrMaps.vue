@@ -1,7 +1,7 @@
 <template>
   <div class="section container lrMaps">
     <div class="heading-container">
-      <h2>Här finns vi</h2>
+      <h2> {{ this.mapsTexts.mapsHeading }} </h2>
       <hr class="lrHeaderLine">
     </div>
 
@@ -25,7 +25,23 @@
 
 <script>
 export default {
-  name: 'lrMaps'
+  name: 'lrMaps',
+  computed: {
+    pages () {
+      return this.$store.state.pages
+    },
+    mapsTexts () {
+      if (this.pages.length > 0) {
+        return {
+          mapsHeading: this.pages[1].acf.maps_heading
+        }
+      } else {
+        return {
+          mapsHeading: '...'
+        }
+      }
+    }
+  }
 }
 </script>
 

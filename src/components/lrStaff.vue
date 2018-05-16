@@ -1,10 +1,9 @@
 <template>
   <div class="section container lrStaff">
-    <h2>Mer än bara siffror</h2>
+    <h2> {{ this.staffTexts.staffHeading }}</h2>
     <hr class="lrHeaderLine">
 
-    <p class="mainText">
-      Vår byrå består av kompetent och engagerad personal. Vi gör vårt yttersta för att hjälpa Er företagare med vår kunskap och erfarenhet. På LR tycker vi att det är viktigt att bygga en långsiktig affärsmässig relation med våra kunder, där trygghet och förståelse för kundens verksamhet står i centrum.
+    <p class="mainText" v-html="this.staffTexts.staffParagraph">
     </p>
 
     <!-- pictures of the staff on LR örebro -->
@@ -195,7 +194,25 @@
 
 <script>
 export default {
-  name: 'lrStaff'
+  name: 'lrStaff',
+  computed: {
+    pages () {
+      return this.$store.state.pages
+    },
+    staffTexts () {
+      if (this.pages.length > 0) {
+        return {
+          staffHeading: this.pages[1].acf.staff_heading,
+          staffParagraph: this.pages[1].acf.staff_paragraph
+        }
+      } else {
+        return {
+          staffHeading: '...',
+          staffParagraph: '...'
+        }
+      }
+    }
+  }
 }
 </script>
 
