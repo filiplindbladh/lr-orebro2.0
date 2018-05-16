@@ -4,7 +4,7 @@
         <swiper-slide>
             <div class="section headerOne overlay">
                 <div class="lrHeader container">
-                    <h1> VÄLKOMMEN TILL <br /> DIN FRAMTIDSBYRÅ </h1>
+                    <h1> {{ this.headerContent.headingOne.toUpperCase()  }} </h1>
                     <hr class="lrHeaderLineHeader">
                     <!-- <a href="/tjanster" id="lr-button-more" class="button is-info is-outlined">LÄS MER</a> -->
                 </div>
@@ -13,7 +13,7 @@
         <!-- <swiper-slide>
           <div class="section headerTwo overlay">
                 <div class="lrHeader container">
-                    <h2>REGISTRERAT VERKLIG HUVUDMAN <br> HOS BOLAGSVERKET?</h2>
+                    <h2>{{ this.headerContent.headingTwo.toUpperCase() }}</h2>
                     <h4>– Sista dagen 1 Februari.</h4>
                     <hr class="lrHeaderLineHeader"> -->
                     <!-- <a v-scroll-to="'.facebookBanner'" id="lr-button-more" class="button is-info is-outlined">LÄS MER</a> -->
@@ -23,7 +23,7 @@
         <swiper-slide>
           <div class="section headerThree overlay">
               <div class="lrHeader container">
-                  <h2>HÅLL KOLL PÅ DIN<br> EKONOMI MED LR-ONLINE</h2>
+                  <h2> {{ this.headerContent.headingThree.toUpperCase() }} </h2>
                   <hr class="lrHeaderLineHeader">
                   <!-- <a href="/online" id="lr-button-more" class="button is-info is-outlined">LÄS MER</a> -->
               </div>
@@ -51,6 +51,31 @@ export default {
         }
       }
     }
+  },
+  computed: {
+    pages () {
+      return this.$store.state.pages
+    },
+    headerContent () {
+      if (this.pages.length > 0) {
+        return {
+          headingOne: this.pages[0].acf.heading_one,
+          headingTwo: this.pages[0].acf.heading_two,
+          headingThree: this.pages[0].acf.heading_three,
+          imageOne: this.pages[0].acf.image_one,
+          imageTwo: this.pages[0].acf.image_two,
+          imageThree: this.pages[0].acf.image_three
+        }
+      } else {
+        return {
+          headingOne: '...',
+          headingTwo: '...',
+          headingThree: '...'
+        }
+      }
+    }
+  },
+  mounted () {
   }
 }
 </script>
@@ -157,6 +182,7 @@ export default {
             text-align: center;
             color: $white;
             z-index: 100;
+            width: 60%;
         }
     }
     .lrHeaderLineHeader {
@@ -173,4 +199,9 @@ export default {
         border: 5px solid $green;
         font-size: 23px;
     }
+@media #{$ipads} {
+  .lrHeader h1, .lrHeader h2 {
+    width: 80%;
+  }
+}
 </style>
