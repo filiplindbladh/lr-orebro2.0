@@ -2,191 +2,26 @@
   <div class="section container lrStaff">
     <h2> {{ this.staffTexts.staffHeading }}</h2>
     <hr class="lrHeaderLine">
-
     <p class="mainText" v-html="this.staffTexts.staffParagraph">
     </p>
-
     <!-- pictures of the staff on LR örebro -->
     <div class="columns is-multiline lrPictures">
-      <div class="column is-half-tablet is-one-quarter-desktop">
+      <div class="column is-half-tablet is-one-quarter-desktop" v-for="(member, index) in staff" :key="index">
         <div class="staffContainer">
-            <img class="lrStaffMember" src="../img/PeterLindbladh.png" alt="Staff member Lr Örebro">
+            <img class="lrStaffMember" :src="member.img" alt="Staff member">
             <div class="staffInfo">
               <div class="transparentBox">
-                <span>Peter Lindbladh</span>
-                <br>
-                <span>Revisor</span>
-                <br>
-                <a href="tel:019183850"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                <a href="mailto:peter.lindbladh@lr-revision.se"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+                <p> {{ member.name }}</p>
+                <p>{{ member.role }}</p>
+                <a :href="'tel:' + member.phone">
+                  <i class="fa fa-phone icon-1x" aria-hidden="true"></i>
+                </a>
+                <a :href="'mailto:' + member.name">
+                  <i class="fa fa-paper-plane icon-1x" aria-hidden="true"></i>
+                </a>
               </div>
             </div>
           </div>
-      </div>
-      <div class="column is-half-tablet is-one-quarter-desktop">
-        <div class="staffContainer">
-            <img class="lrStaffMember" src="../img/ThomasAllard.png" alt="Staff member Lr Örebro">
-            <div class="staffInfo">
-              <div class="transparentBox">
-                <span>Thomas Allard</span>
-                <br>
-                <span>Auktoriserad revisor</span>
-                <br>
-                <a href="tel:019183853"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                <a href="mailto:thomas.allard@lr-revision.se"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </div>
-      </div>
-      <div class="column is-half-tablet is-one-quarter-desktop">
-        <div class="staffContainer">
-          <img class="lrStaffMember" src="../img/Ann-CharlotteLarsson.jpg" alt="Staff member Lr Örebro">
-          <div class="staffInfo">
-            <div class="transparentBox">
-              <span>Ann-Charlotte Larsson</span>
-              <br>
-              <span>Löneadministratör <br /> Redovisningskonsult</span>
-              <br>
-              <a href="tel:019183850"><i class="fa fa-phone" aria-hidden="true"></i></a>
-              <a href="mailto:ann-charlotte.larsson@lr-revision.se"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-half-tablet is-one-quarter-desktop">
-        <div class="staffContainer">
-            <img class="lrStaffMember" src="../img/JensForneng.png" alt="Staff member Lr Örebro">
-            <div class="staffInfo">
-              <div class="transparentBox">
-                <span>Jens Forneng</span>
-                <br>
-                <span>Auktoriserad revisor</span>
-                <br>
-                <a href="tel:019183859"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                <a href="mailto:jens.forneng@lr-revision.se"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </div>
-      </div>
-      <div class="column is-half-tablet is-one-quarter-desktop">
-        <div class="staffContainer">
-            <img class="lrStaffMember" src="../img/EvaEdstrom.png" alt="Eva Edström Lr Örebro">
-            <div class="staffInfo">
-              <div class="transparentBox">
-                <span>Eva Edström</span>
-                <br>
-                <span>Auktoriserad <br /> redovisningskonsult</span>
-                <br>
-                <a href="tel:019183852"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                <a href="mailto:eva.edstrom@lr-revision.se"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </div>
-      </div>
-      <div class="column is-half-tablet is-one-quarter-desktop">
-        <div class="staffContainer">
-            <img class="lrStaffMember" src="../img/RobertLarsson.png" alt="Staff member Lr Örebro">
-            <div class="staffInfo">
-              <div class="transparentBox">
-                <span>Robert Larsson</span>
-                <br>
-                <span>Redovisningskonsult</span>
-                <br>
-                <a href="tel:019183858"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                <a href="mailto:robert.larsson@lr-revision.se"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </div>
-      </div>
-      <div class="column is-half-tablet is-one-quarter-desktop">
-        <div class="staffContainer">
-            <img class="lrStaffMember" src="../img/ElinViitanen.png" alt="Staff member Lr Örebro">
-            <div class="staffInfo">
-              <div class="transparentBox">
-                <span>Elin Viitanen</span>
-                <br>
-                <span>Revisorsassistent</span>
-                <br>
-                <a href="tel:0197652322"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                <a href="mailto:elin.viitanen@lr-revision.se"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </div>
-      </div>
-      <div class="column is-half-tablet is-one-quarter-desktop">
-        <div class="staffContainer">
-          <img class="lrStaffMember" src="../img/LouiseHagberg.png" alt="Staff member Lr Örebro">
-          <div class="staffInfo">
-            <div class="transparentBox">
-              <span>Louise Hagberg</span>
-              <br>
-              <span>Redovisningskonsult</span>
-              <br>
-              <a href="tel:0197652321"><i class="fa fa-phone" aria-hidden="true"></i></a>
-              <a href="mailto:louise.hagberg@lr-revision.se"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-half-tablet is-one-quarter-desktop">
-        <div class="staffContainer">
-            <img class="lrStaffMember" src="../img/SandraDuvdahl.png" alt="Staff member Lr Örebro">
-            <div class="staffInfo">
-              <div class="transparentBox">
-                <span>Sandra Duvdahl</span>
-                <br>
-                <span>Redovisningskonsult</span>
-                <br>
-                <a href="tel:019103852"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                <a href="mailto:sandra.duvdahl@lr-revision.se"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="column is-half-tablet is-one-quarter-desktop">
-          <div class="staffContainer">
-            <img class="lrStaffMember" src="../img/LenaMolnar.jpg" alt="Staff member Lr Örebro">
-            <div class="staffInfo">
-              <div class="transparentBox">
-                <span>Lena Molnar</span>
-                <br>
-                <span>Jurist</span>
-                <br>
-                <a href="tel:0701905709"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                <a href="mailto:lena.koss@lkjuridiskabyra.se"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </div>
-      </div>
-      <div class="column is-half-tablet is-one-quarter-desktop">
-        <div class="staffContainer">
-          <img class="lrStaffMember" src="../img/SaraYttermalm.jpg" alt="Staff member Lr Örebro">
-          <div class="staffInfo">
-            <div class="transparentBox">
-              <span>Sara Yttermalm</span>
-              <br>
-              <span>Administratör</span>
-              <br>
-              <a href="tel:019183851"><i class="fa fa-phone" aria-hidden="true"></i></a>
-              <a href="mailto:sara.yttermalm@lr-revision.se"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-half-tablet is-one-quarter-desktop">
-        <div class="staffContainer">
-          <img class="lrStaffMember" src="../img/SaraGustafsson.png" alt="Staff member Lr Örebro">
-          <div class="staffInfo">
-            <div class="transparentBox">
-              <span>Sara Gustafsson</span>
-              <br>
-              <span>Praktikant</span>
-              <br>
-              <a href="tel:019183850"><i class="fa fa-phone" aria-hidden="true"></i></a>
-              <a href="mailto:hej@lr-orebro.se"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -195,6 +30,61 @@
 <script>
 export default {
   name: 'lrStaff',
+  data () {
+    return {
+      staff: [
+        {
+          name: 'Birgitta Larsson',
+          role: 'Administratör',
+          img: require('../img/RobertLarsson.png'),
+          phone: '015113631',
+          mail: 'birgitta.larsson@lr-revision.se'
+        },
+        {
+          name: 'Carolin',
+          role: 'Roll',
+          img: require('../img/RobertLarsson.png'),
+          phone: '0000',
+          mail: 'email'
+        },
+        {
+          name: 'Erika Nikolai',
+          role: 'Auktoriserad redovisningskonsult',
+          img: require('../img/RobertLarsson.png'),
+          phone: '015113634',
+          mail: 'erika.nikolai@lr-revision.se'
+        },
+        {
+          name: 'Greta Hedlund',
+          role: 'Redovisningskonsult',
+          img: require('../img/RobertLarsson.png'),
+          phone: '015113603',
+          mail: 'greta.hedlund@lr-revision.se'
+        },
+        {
+          name: 'Jonas Lotterberg',
+          role: 'Auktoriserad revisor',
+          img: require('../img/RobertLarsson.png'),
+          phone: '015113609',
+          mail: 'jonas.lotterberg@lr-revision.se'
+        },
+        {
+          name: 'Linda Söderling',
+          role: 'Kontorschef, redovisningskonsult',
+          img: require('../img/RobertLarsson.png'),
+          phone: '015113630',
+          mail: 'linda.söderling@lr-revision.se'
+        },
+        {
+          name: 'Tomas Schörling',
+          role: 'Redovisningskonsult',
+          img: require('../img/RobertLarsson.png'),
+          phone: '015113632',
+          mail: 'tomas.schörling@lr-revision.se'
+        }
+      ]
+    }
+  },
   computed: {
     pages () {
       return this.$store.state.pages
@@ -222,23 +112,14 @@ export default {
     height:5px;
   }
   .lrStaff {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    align-items: center;
+    flex-direction: column;
   }
   .staffContainer {
     position: relative;
   }
   .staffInfo {
-    -webkit-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
     opacity: 0;
     margin: auto;
@@ -246,9 +127,6 @@ export default {
     left: 0;
     right: 0;
     bottom: 6px;
-    /* -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%); */
     .fa {
       margin: 15px 12px 0 12px;
       color: $green;
@@ -261,9 +139,14 @@ export default {
       margin-bottom: 5px;
       font-size: 29px;
     }
-    span {
+    p {
       color: white;
       font-weight: bold;
+    }
+    a {
+      color: white;
+      font-weight: bold;
+      display: inline;
     }
     .transparentBox {
       background-color: rgba(0,0,0,0.6);
