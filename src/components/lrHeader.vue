@@ -4,7 +4,7 @@
         <swiper-slide>
             <div class="section headerOne overlay">
                 <div class="lrHeader container">
-                    <h1> {{ this.headerContent.headingOne.toUpperCase()  }} </h1>
+                    <h1> {{ this.headerContent.headingOne }} </h1>
                     <hr class="lrHeaderLineHeader">
                     <!-- <a href="/tjanster" id="lr-button-more" class="button is-info is-outlined">LÄS MER</a> -->
                 </div>
@@ -23,7 +23,7 @@
         <swiper-slide>
           <div class="section headerThree overlay">
               <div class="lrHeader container">
-                  <h2> {{ this.headerContent.headingThree.toUpperCase() }} </h2>
+                  <h2> {{ this.headerContent.headingThree }} </h2>
                   <hr class="lrHeaderLineHeader">
                   <!-- <a href="/online" id="lr-button-more" class="button is-info is-outlined">LÄS MER</a> -->
               </div>

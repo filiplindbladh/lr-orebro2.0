@@ -7,11 +7,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    pages: []
+    pages: [],
+    posts: []
   },
   mutations: {
     setPages (state, pagesObj) {
       state.pages = pagesObj
+    },
+    setPosts (state, postsObj) {
+      state.posts = postsObj
     }
   },
   actions: {
@@ -20,6 +24,17 @@ export default new Vuex.Store({
         .then(function (response) {
           console.log('responsestore:', response.data)
           context.commit('setPages', response.data)
+        })
+        .catch(function (e) {
+          this.errors.push(e)
+          console.log(e)
+        })
+    },
+    getPosts (context, payLoad) {
+      axios.get(apiurl.default.apiurl + 'posts?per_page=100')
+        .then(function (response) {
+          console.log('response posts store:', response.data)
+          context.commit('setPosts', response.data)
         })
         .catch(function (e) {
           this.errors.push(e)
