@@ -41,8 +41,8 @@ export default {
     staffTexts () {
       if (this.pages.length > 0) {
         return {
-          staffHeading: this.pages[1].acf.staff_heading,
-          staffParagraph: this.pages[1].acf.staff_paragraph
+          staffHeading: this.pages[2].acf.staff_heading,
+          staffParagraph: this.pages[2].acf.staff_paragraph
         }
       } else {
         return {
