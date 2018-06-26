@@ -33,7 +33,7 @@ export default {
     mapsTexts () {
       if (this.pages.length > 0) {
         return {
-          mapsHeading: this.pages[1].acf.maps_heading
+          mapsHeading: this.pages[2].acf.maps_heading
         }
       } else {
         return {

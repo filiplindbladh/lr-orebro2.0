@@ -155,104 +155,90 @@ export default {
 </script>
 
 <style lang="scss">
-    .vue-tabs .nav > li span.title {
-        font-size:15px;
+.vue-tabs .nav > li span.title {
+  font-size:15px;
+}
+li.tab.active,
+li.tab.active:hover {
+  background-color: $white;
+}
+.vue-tabs .nav-tabs-justified > li > a,
+.vue-tabs .nav-tabs.nav-justified > li > a {
+  border-bottom: 1px solid transparent;
+}
+.tab {
+  background-color:$blue;
+  border-right: 1px solid white;
+  .title {
+    color:white;
+  }
+}
+li.tab:hover {
+  background-color: #eeeeee;
+}
+li.tab:hover .title {
+  color:black;
+}
+.tabs__link > .title {
+  color:$white;
+}
+.tabs__link:hover > .title {
+  color:black;
+}
+.leadText {
+  margin-bottom:40px;
+  width:70%;
+}
+.v-tab {
+  min-height: 100%;
+}
+.tab-content {
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .tab-container {
+    display: block;
+    -webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
+  }
+}
+.icon {
+  height:10px;
+}
+.lrHeaderLine {
+  background-color: $red;
+}
+.paragraphContainer {
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.paragraph {
+  width: 50%;
+}
+.lrServicesContent h3, .lrServicesContent p.leadText {
+  padding-bottom: 20px;
+}
+/* ****************** MEDIAQUERIES ****************** */
+@media screen and (max-width: $tablet - 1px) {
+  .quote {
+    h3 {
+      font-size: 5vw;
     }
-    li.tab.active,
-    li.tab.active:hover {
-        background-color: $white;
-    }
-    .vue-tabs .nav-tabs-justified > li > a,
-    .vue-tabs .nav-tabs.nav-justified > li > a {
-        border-bottom: 1px solid transparent;
-    }
-    .tab {
-        background-color:$blue;
-        border-right: 1px solid white;
-        .title {
-            color:white;
-        }
-    }
-    li.tab:hover {
-        background-color: #eeeeee;
-    }
-    li.tab:hover .title {
-        color:black;
-    }
-    .tabs__link > .title {
-        color:$white;
-    }
-    .tabs__link:hover > .title {
-        color:black;
-    }
-    .leadText {
-        margin-bottom:40px;
-        width:70%;
-    }
-    .v-tab {
-        min-height: 100%;
-    }
-    .tab-content {
-        max-height: 100%;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient:vertical;
-        -webkit-box-direction:normal;
-            -ms-flex-direction:column;
-                flex-direction:column;
-        -webkit-box-align:center;
-            -ms-flex-align:center;
-                align-items:center;
-        -webkit-box-pack:center;
-            -ms-flex-pack:center;
-                justify-content:center;
-        .tab-container {
-            display: block;
-            -webkit-animation: fadeIn 0.5s;
-                    animation: fadeIn 0.5s;
-        }
-    }
-    .icon {
-        height:10px;
-    }
-    .lrHeaderLine {
-        background-color: $red;
-    }
-    .paragraphContainer {
-        max-width: 100%;
-        height: 100%;
-        display:-webkit-box;
-        display:-ms-flexbox;
-        display:flex;
-        -webkit-box-orient:horizontal;
-        -webkit-box-direction:normal;
-            -ms-flex-direction:row;
-                flex-direction:row;
-    }
-    .paragraph {
-        width:50%;
-    }
-    /* ****************** MEDIAQUERIES ****************** */
-    @media screen and (max-width: $tablet - 1px) {
-        .quote {
-            h3 {
-                font-size: 5vw;
-            }
-        }
-        .leadText {
-            width:100%;
-        }
-    }
-    @media screen and (max-width: 920px ) {
-        .paragraphContainer {
-            -webkit-box-orient:vertical;
-            -webkit-box-direction:normal;
-                -ms-flex-direction:column;
-                    flex-direction:column;
-        }
-        .paragraph {
-            width:95%;
-        }
-    }
+  }
+  .leadText {
+    width:100%;
+  }
+}
+@media screen and (max-width: 920px ) {
+  .paragraphContainer {
+    flex-direction: column;
+  }
+  .paragraph {
+    width:95%;
+  }
+}
 </style>
