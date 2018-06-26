@@ -219,7 +219,7 @@ li.tab:hover .title {
 .paragraph {
   width: 50%;
 }
-.lrServicesContent h3, .lrServicesContent p.leadText {
+.lrServicesContent h3, .lrServicesContent p.leadText, .lrServicesContent p {
   padding-bottom: 20px;
 }
 /* ****************** MEDIAQUERIES ****************** */
