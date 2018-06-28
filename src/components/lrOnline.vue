@@ -73,7 +73,11 @@ export default {
         return {
           heading: '...',
           text: '...',
-          img: '',
+          img: {
+            sizes: {
+              large: '...'
+            }
+          },
           imgText: '...'
         }
       }

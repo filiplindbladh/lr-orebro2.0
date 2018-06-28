@@ -45,9 +45,9 @@ export default {
     servicesContent () {
       if (this.pages.length > 0) {
         return {
-          servicesTitle: this.pages[2].acf.services_title,
-          servicesSubheading: this.pages[2].acf.services_subheading,
-          servicesParagraph: this.pages[2].acf.services_paragraph
+          servicesTitle: this.pages[5].acf.services_title,
+          servicesSubheading: this.pages[5].acf.services_subheading,
+          servicesParagraph: this.pages[5].acf.services_paragraph
         }
       } else {
         return {
@@ -62,141 +62,108 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    h2 {
-        text-align:center;
-    }
-    .section {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-    }
+h2 {
+  text-align: center;
+}
+.section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.lrHeaderLine {
+  background-color: $red;
+  height:5px;
+}
+.services {
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.box {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  border: 2px solid $black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &:hover {
+    background-color: white;
+  }
+  h3 {
+    color: $white;
+    z-index: 2;
+  }
+}
+.box:hover > .triangle-bottomright {
+  border-left: 0 solid transparent;
+  right: 0;
+}
+.box:hover > h3 {
+  color: $black;
+}
+.consulting img {
+  width: 80%;
+  height: 211px;
+}
+.triangle-bottomright {
+  transition: all .3s ease-in-out;
+  width: 0;
+  height: 0;
+  right: 0;
+  top: 0;
+  border-bottom: 300px solid $blue;
+  border-left: 298px solid transparent;
+  z-index: 1;
+  position: absolute;
+}
+p {
+  text-align: center;
+  width: 70%;
+}
+.services .box .boxImage {
+  height: 211px;
+  max-width: 100%;
+}
+
+/* ****************** MEDIAQUERIES ****************** */
+@media screen and (max-width: $tablet - 1px) {
+  .services {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .box {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 20px;
+  }
+  .triangle-bottomright {
+    display: none;
+  }
+  .box > h3 {
+    color: $black;
+  }
     .lrHeaderLine {
-        background-color: $red;
-        height:5px;
-    }
-    .services {
-        width:100%;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-        -ms-flex-wrap:wrap;
-            flex-wrap:wrap;
-        margin-bottom:40px;
-    }
-    .box {
-        position: relative;
-        height:300px;
-        width:300px;
-        border: 2px solid $black;
-        display:-webkit-box;
-        display:-ms-flexbox;
-        display:flex;
-        -webkit-box-pack:center;
-            -ms-flex-pack:center;
-                justify-content:center;
-        -webkit-box-align:center;
-            -ms-flex-align:center;
-                align-items:center;
-        -webkit-box-orient:vertical;
-        -webkit-box-direction:normal;
-            -ms-flex-direction:column;
-                flex-direction:column;
-        &:hover {
-            /* background-color:rgba(227, 82, 80, 0.5);  */
-            background-color: white;
-        }
-        h3 {
-            color:$white;
-            z-index:2;
-        }
-    }
-    .box:hover > .triangle-bottomright {
-        /* opacity:0;   */
-        border-left: 0 solid transparent;
-        right: 0;
-    }
-    .box:hover > h3 {
-        color:$black;
-    }
-    .consulting img {
-        width: 80%;
-        height: 211px;
-    }
-    .triangle-bottomright {
-        -webkit-transition: all .3s ease-in-out;
-        -o-transition: all .3s ease-in-out;
-        transition: all .3s ease-in-out;
-        width: 0;
-        height: 0;
-        right: 0;
-        top: 0;
-        border-bottom: 300px solid $blue;
-        border-left: 298px solid transparent;
-        z-index: 1;
-        position:absolute;
-    }
-    p {
-        text-align:center;
-        width:70%;
-    }
-    .services .box .boxImage {
-        height: 211px;
-        max-width: 100%;
-    }
-
-    /* ****************** MEDIAQUERIES ****************** */
-    @media screen and (max-width: $tablet - 1px) {
-        .services {
-            width:100%;
-            -webkit-box-orient:vertical;
-            -webkit-box-direction:normal;
-                -ms-flex-direction:column;
-                    flex-direction:column;
-            -webkit-box-align:center;
-                -ms-flex-align:center;
-                    align-items:center;
-        }
-       .box {
-            width: 220px;
-            height: 220px;
-            margin-bottom:20px;
-        }
-        .triangle-bottomright {
-            display: none;
-        }
-        .box > h3 {
-            color:$black;
-        }
-         .lrHeaderLine {
-          width:50%;
-        }
-        .box img {
-            width:50%;
-        }
-    }
-    @media screen and (min-width: $tablet) and (max-width: $desktop - 1px) {
-        .box {
-            margin:25px;
-        }
-    }
-    @media screen and (max-width: 395px) {
-       .box {
-            width: 220px;
-            height: 220px;
-        }
-    }
-
+    width: 50%;
+  }
+  .box img {
+    width: 50%;
+  }
+}
+@media screen and (min-width: $tablet) and (max-width: $desktop - 1px) {
+  .box {
+    margin: 25px;
+  }
+}
+@media screen and (max-width: 395px) {
+  .box {
+    width: 220px;
+    height: 220px;
+  }
+}
 </style>
