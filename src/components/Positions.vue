@@ -46,11 +46,11 @@ export default {
     workTexts () {
       if (this.pages.length > 0) {
         return {
-          heading: this.pages[0].acf.heading,
-          text: this.pages[0].acf.text,
-          showBanner: this.pages[0].acf.show_banner,
-          bannerHeading: this.pages[0].acf.banner_heading,
-          bannerText: this.pages[0].acf.banner_text
+          heading: this.pages[1].acf.heading,
+          text: this.pages[1].acf.text,
+          showBanner: this.pages[1].acf.show_banner,
+          bannerHeading: this.pages[1].acf.banner_heading,
+          bannerText: this.pages[1].acf.banner_text
         }
       } else {
         return {

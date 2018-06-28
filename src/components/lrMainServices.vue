@@ -124,16 +124,16 @@ export default {
     mainServicesContent () {
       if (this.pages.length > 0) {
         return {
-          redovisning: this.pages[0].acf.redovisning_text,
-          redovisningImg: this.pages[0].acf.redovisning_img,
-          radgivning: this.pages[0].acf.radgivning_text,
-          radgivningImg: this.pages[0].acf.radgivning_img,
-          revision: this.pages[0].acf.revision_text,
-          revisionImg: this.pages[0].acf.revision_img,
-          bokslut: this.pages[0].acf.bokslut_text,
-          bokslutImg: this.pages[0].acf.bokslut_img,
-          loneadmin: this.pages[0].acf.loneadmin_text,
-          loneadminImg: this.pages[0].acf.loneadmin_img
+          redovisning: this.pages[3].acf.redovisning_text,
+          redovisningImg: this.pages[3].acf.redovisning_img,
+          radgivning: this.pages[3].acf.radgivning_text,
+          radgivningImg: this.pages[3].acf.radgivning_img,
+          revision: this.pages[3].acf.revision_text,
+          revisionImg: this.pages[3].acf.revision_img,
+          bokslut: this.pages[3].acf.bokslut_text,
+          bokslutImg: this.pages[3].acf.bokslut_img,
+          loneadmin: this.pages[3].acf.loneadmin_text,
+          loneadminImg: this.pages[3].acf.loneadmin_img
         }
       } else {
         return {
