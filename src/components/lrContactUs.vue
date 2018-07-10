@@ -1,9 +1,9 @@
 <template>
   <div>
     <!-- Banner  -->
-    <div class="contactImage overlay">
+    <div class="contactImage overlay" v-bind:style="{ 'background-image': 'url(' + this.contactTexts.headerImg.sizes.large + ')' }">
       <div class="quote container">
-        <h3 class="responsiveHeading">Kontakta oss för mer information, <br />vi ser fram emot att höra från dig</h3>
+        <h3 class="responsiveHeading"> {{ this.contactTexts.heading }} </h3>
       </div>
     </div>
     <!-- Content on contact us page -->
@@ -12,9 +12,9 @@
         <h3>Kontakta oss</h3>
         <hr class="lrHeaderLine">
         <p class="mainText adress">
-          <strong>Adress:</strong> Bettorpsgatan 12 C, 703 69 Örebro <br/>
-          <strong>E-post:</strong> <a href="mailto:hej@lr-orebro.se">hej@lr-orebro.se</a> <br/>
-          <strong>Växel:</strong> <a href="tel:019183850">019 18 38 50</a>
+          <strong>Adress:</strong> {{ this.contactTexts.adress }} <br/>
+          <strong>E-post:</strong> <a :href="'mailto:' + this.contactTexts.epost"> {{ this.contactTexts.epost }} </a> <br/>
+          <strong>Växel:</strong> <a :href="'tel:' + this.contactTexts.vaxel"> {{ this.contactTexts.vaxel }} </a>
         </p>
       </div>
       <!-- Pictures and info about the staff on LR Örebro -->
@@ -59,6 +59,32 @@ export default {
     staffList () {
       let staff = this.posts.map(posts => posts.acf)
       return staff.reverse()
+    },
+    pages () {
+      return this.$store.state.pages
+    },
+    contactTexts () {
+      if (this.pages.length > 0) {
+        return {
+          heading: this.pages[0].acf.contact_heading,
+          headerImg: this.pages[0].acf.contact_header_img,
+          adress: this.pages[0].acf.adress,
+          epost: this.pages[0].acf.epost,
+          vaxel: this.pages[0].acf.vaxel
+        }
+      } else {
+        return {
+          heading: '...',
+          headerImg: {
+            sizes: {
+              large: '...'
+            }
+          },
+          adress: '...',
+          epost: '...',
+          vaxel: '...'
+        }
+      }
     }
   }
 }
@@ -100,7 +126,7 @@ export default {
 }
 .contactImage {
   margin-top: 67px;
-  background-image: url("../img/contactHeader.png");
+  // background-image: url("../img/contactHeader.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

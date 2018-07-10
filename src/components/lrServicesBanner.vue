@@ -21,8 +21,8 @@ export default {
     servicesBannerContent () {
       if (this.pages.length > 0) {
         return {
-          title: this.pages[3].acf.heading,
-          intro: this.pages[3].acf.intro
+          title: this.pages[4].acf.heading,
+          intro: this.pages[4].acf.intro
         }
       } else {
         return {

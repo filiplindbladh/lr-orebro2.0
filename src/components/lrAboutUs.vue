@@ -28,8 +28,8 @@ export default {
     aboutTexts () {
       if (this.pages.length > 0) {
         return {
-          heading: this.pages[0].acf.heading,
-          text: this.pages[0].acf.text
+          heading: this.pages[3].acf.heading,
+          text: this.pages[3].acf.text
         }
       } else {
         return {

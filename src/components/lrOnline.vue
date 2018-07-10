@@ -64,10 +64,10 @@ export default {
     onlineTexts () {
       if (this.pages.length > 0) {
         return {
-          heading: this.pages[0].acf.heading,
-          text: this.pages[0].acf.text,
-          img: this.pages[0].acf.img,
-          imgText: this.pages[0].acf.img_text
+          heading: this.pages[1].acf.heading,
+          text: this.pages[1].acf.text,
+          img: this.pages[1].acf.img,
+          imgText: this.pages[1].acf.img_text
         }
       } else {
         return {

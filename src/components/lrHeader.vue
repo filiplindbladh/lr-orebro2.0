@@ -49,10 +49,10 @@ export default {
     headerContent () {
       if (this.pages.length > 0) {
         return {
-          headingOne: this.pages[4].acf.heading_one,
-          headingTwo: this.pages[4].acf.heading_two,
-          imageOne: this.pages[4].acf.image_one,
-          imageTwo: this.pages[4].acf.image_two
+          headingOne: this.pages[5].acf.heading_one,
+          headingTwo: this.pages[5].acf.heading_two,
+          imageOne: this.pages[5].acf.image_one,
+          imageTwo: this.pages[5].acf.image_two
         }
       } else {
         return {
