@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="services-header overlay">
+    <div class="services-header overlay" v-bind:style="{ 'background-image': 'url(' + this.servicesBannerContent.header.sizes.large + ')' }">
       <div class="quote container">
         <h3> {{ this.servicesBannerContent.title }}</h3>
       </div>
@@ -21,11 +21,17 @@ export default {
     servicesBannerContent () {
       if (this.pages.length > 0) {
         return {
+          header: this.pages[4].acf.services_header,
           title: this.pages[4].acf.heading,
           intro: this.pages[4].acf.intro
         }
       } else {
         return {
+          header: {
+            sizes: {
+              large: '...'
+            }
+          },
           title: '...',
           intro: '...'
         }
@@ -52,7 +58,7 @@ export default {
 }
 .services-header {
   margin-top: 67px;
-  background-image: url("../img/servicesHeader.png");
+  //background-image: url("../img/servicesHeader.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
