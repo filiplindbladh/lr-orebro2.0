@@ -45,9 +45,9 @@ export default {
     servicesContent () {
       if (this.pages.length > 0) {
         return {
-          servicesTitle: this.pages[5].acf.services_title,
-          servicesSubheading: this.pages[5].acf.services_subheading,
-          servicesParagraph: this.pages[5].acf.services_paragraph
+          servicesTitle: this.pages[6].acf.services_title,
+          servicesSubheading: this.pages[6].acf.services_subheading,
+          servicesParagraph: this.pages[6].acf.services_paragraph
         }
       } else {
         return {

@@ -2,7 +2,7 @@
   <div id="positions">
     <!-- Header  -->
     <lrMenu></lrMenu>
-    <div class="positionsHeader overlay">
+    <div class="positionsHeader overlay" v-bind:style="{ 'background-image': 'url(' + this.workTexts.headerImg.sizes.large + ')' }">
       <h3 class="responsiveHeading"> {{ this.workTexts.heading }}</h3>
     </div>
     <div class="positionsInfo container">
@@ -11,7 +11,7 @@
         </p>
       </div>
       <div>
-        <img src="../img/LRtable.jpg" alt="Picture of LR Örebro staff">
+        <img :src="this.workTexts.textImg.sizes.large" alt="Lr-Orebro staff">
       </div>
     </div>
     <div class="work-banner" v-if="this.workTexts.showBanner">
@@ -46,19 +46,31 @@ export default {
     workTexts () {
       if (this.pages.length > 0) {
         return {
-          heading: this.pages[1].acf.heading,
-          text: this.pages[1].acf.text,
-          showBanner: this.pages[1].acf.show_banner,
-          bannerHeading: this.pages[1].acf.banner_heading,
-          bannerText: this.pages[1].acf.banner_text
+          headerImg: this.pages[2].acf.header_img,
+          heading: this.pages[2].acf.heading,
+          text: this.pages[2].acf.text,
+          showBanner: this.pages[2].acf.show_banner,
+          bannerHeading: this.pages[2].acf.banner_heading,
+          bannerText: this.pages[2].acf.banner_text,
+          textImg: this.pages[2].acf.img
         }
       } else {
         return {
+          headerImg: {
+            sizes: {
+              large: '...'
+            }
+          },
           heading: '...',
           text: '...',
           banner: '',
           bannerHeading: '...',
-          bannerText: '...'
+          bannerText: '...',
+          textImg: {
+            sizes: {
+              large: '...'
+            }
+          }
         }
       }
     }
@@ -69,7 +81,7 @@ export default {
 <style scoped lang="scss">
 .positionsHeader {
   margin-top:67px;
-  background-image: url("../img/positionsHeader.png");
+  //background-image: url("../img/positionsHeader.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

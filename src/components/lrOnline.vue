@@ -3,7 +3,7 @@
     <!-- Header  -->
     <lr-menu></lr-menu>
     <!-- Banner  -->
-    <div class="contactImage overlay">
+    <div class="contactImage overlay" v-bind:style="{ 'background-image': 'url(' + this.onlineTexts.headerImg.sizes.large + ')' }">
       <div class="quote container">
         <h3 class="responsiveHeading"> {{ this.onlineTexts.heading }} </h3>
       </div>
@@ -64,13 +64,19 @@ export default {
     onlineTexts () {
       if (this.pages.length > 0) {
         return {
-          heading: this.pages[0].acf.heading,
-          text: this.pages[0].acf.text,
-          img: this.pages[0].acf.img,
-          imgText: this.pages[0].acf.img_text
+          headerImg: this.pages[1].acf.header_img,
+          heading: this.pages[1].acf.heading,
+          text: this.pages[1].acf.text,
+          img: this.pages[1].acf.img,
+          imgText: this.pages[1].acf.img_text
         }
       } else {
         return {
+          headerImg: {
+            sizes: {
+              large: '...'
+            }
+          },
           heading: '...',
           text: '...',
           img: {
@@ -123,7 +129,7 @@ export default {
 }
 .contactImage {
   margin-top: 67px;
-  background-image: url("../img/lrContact.jpeg");
+  // background-image: url("../img/lrContact.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

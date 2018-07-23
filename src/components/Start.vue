@@ -56,8 +56,8 @@ export default {
     bannerTexts () {
       if (this.pages.length > 0) {
         return {
-          bannerOne: this.pages[5].acf.contactbanner_heading_one,
-          bannerTwo: this.pages[5].acf.contactbanner_heading_two
+          bannerOne: this.pages[6].acf.contactbanner_heading_one,
+          bannerTwo: this.pages[6].acf.contactbanner_heading_two
         }
       } else {
         return {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Banner  -->
-    <div class="aboutUsImage overlay">
+    <div class="aboutUsImage overlay" v-bind:style="{ 'background-image': 'url(' + this.aboutTexts.headerImg.sizes.large + ')' }">
       <div class="quote container">
         <h3> {{ this.aboutTexts.heading }}</h3>
       </div>
@@ -28,11 +28,17 @@ export default {
     aboutTexts () {
       if (this.pages.length > 0) {
         return {
-          heading: this.pages[0].acf.heading,
-          text: this.pages[0].acf.text
+          headerImg: this.pages[3].acf.header_img,
+          heading: this.pages[3].acf.heading,
+          text: this.pages[3].acf.text
         }
       } else {
         return {
+          headerImg: {
+            sizes: {
+              large: '...'
+            }
+          },
           heading: '...',
           text: '...'
         }
@@ -68,7 +74,7 @@ export default {
 }
 .aboutUsImage {
   margin-top:67px;
-  background-image: url("../img/aboutHeader.png");
+  // background-image: url("../img/aboutHeader.png");
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
