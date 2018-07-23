@@ -67,50 +67,48 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    h1 {
-        display:inline;
-    }
-    img {
-        max-width:10%;
-        margin-left:20px;
-    }
-    header.modal-card-head {
-        background-color:$green;
-    }
-    form {
-        margin-top:20px;
-    }
-    .modal {
-        min-height:100%;
-        z-index:9999999999;
-    }
-    .modal-card {
-        max-width: 100%;
-        max-height: 100%;
-    }
-    .values {
-        .control {
-            margin-top:20px;
-        }
-        .valueOne, .valueTwo, {
-            width:100%;
-        }
-    }
-    .textarea {
-        margin-top:20px;
-    }
-    input:valid > div.control.has-icons-left.has-icons-right > span.icon.is-right > i {
-        background-color:green;
-    }
-    .is-grouped {
-        -ms-flex-wrap:wrap;
-            flex-wrap:wrap;
-    }
-    @media screen and (min-width: 779px) {
-        .modal.is-active {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: inline-block;
-        }
-    }
+h1 {
+  display: inline;
+}
+img {
+  max-width: 10%;
+  margin-left: 20px;
+}
+header.modal-card-head {
+  background-color: $green;
+}
+form {
+  margin-top: 20px;
+}
+.modal {
+  min-height: 100%;
+  z-index: 9999999999;
+  padding-top: 30px;
+}
+.modal-card {
+  max-width: 100%;
+  max-height: 100%;
+}
+.values {
+  .control {
+    margin-top: 20px;
+  }
+  .valueOne, .valueTwo, {
+    width: 100%;
+  }
+}
+.textarea {
+  margin-top: 20px;
+}
+input:valid > div.control.has-icons-left.has-icons-right > span.icon.is-right > i {
+  background-color:green;
+}
+.is-grouped {
+  flex-wrap: wrap;
+}
+@media screen and (min-width: 779px) {
+  .modal.is-active {
+    display: inline-block;
+  }
+}
 </style>
