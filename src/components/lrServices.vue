@@ -91,6 +91,7 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 25px;
   &:hover {
     background-color: white;
   }
@@ -99,16 +100,16 @@ h2 {
     z-index: 2;
   }
 }
+.consulting img {
+  width: 80%;
+  height: 211px;
+}
 .box:hover > .triangle-bottomright {
   border-left: 0 solid transparent;
   right: 0;
 }
 .box:hover > h3 {
   color: $black;
-}
-.consulting img {
-  width: 80%;
-  height: 211px;
 }
 .triangle-bottomright {
   transition: all .3s ease-in-out;
@@ -131,39 +132,17 @@ p {
 }
 
 /* ****************** MEDIAQUERIES ****************** */
-@media screen and (max-width: $tablet - 1px) {
+@media only screen and (max-width: 1024px) {
   .services {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-  }
-  .box {
-    width: 220px;
-    height: 220px;
-    margin-bottom: 20px;
-  }
-  .triangle-bottomright {
     display: none;
   }
-  .box > h3 {
-    color: $black;
-  }
-    .lrHeaderLine {
-    width: 50%;
-  }
-  .box img {
+  .lrHeaderLine {
     width: 50%;
   }
 }
-@media screen and (min-width: $tablet) and (max-width: $desktop - 1px) {
-  .box {
-    margin: 25px;
-  }
-}
-@media screen and (max-width: 395px) {
-  .box {
-    width: 220px;
-    height: 220px;
+@media #{$phones} {
+  .services {
+    display: none;
   }
 }
 </style>
