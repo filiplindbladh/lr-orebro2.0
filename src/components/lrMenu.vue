@@ -14,7 +14,7 @@
                 <router-link to="/online">LR-ONLINE</router-link>
                 <router-link to="/fortnox">FORTNOX</router-link>
             </div>
-            <div class="smallScreenMenuContainer is-hidden-desktop">
+            <div class="smallScreenMenuContainer">
                 <!-- Menu open button -->
                 <div id='open-menu' class='openBtn' v-on:click='open()'>
                     <!-- Hamburger menu -->
@@ -229,7 +229,7 @@ export default {
         max-width: 170px;
     }
     /* ****************** MEDIAQUERIES ****************** */
-    @media screen and (max-width: 819px) {
+    @media screen and (max-width: 1024px) {
         .menuItems {
             display: none;
         }
@@ -237,6 +237,7 @@ export default {
             right: 0;
             position: absolute;
             top: 10px;
+            display: block;
         }
         .lrMenuContainer {
             min-width: 90%;
@@ -248,7 +249,7 @@ export default {
     .menuOverlay .closeBtn {
         right: 4%;
     }
-    @media screen and (min-width: 820px) {
+    @media screen and (min-width: 1025px) {
         .smallScreenMenuContainer {
             display: none;
         }

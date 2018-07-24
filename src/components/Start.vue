@@ -1,31 +1,37 @@
 <template>
   <div id="start">
-  <!-- meny -->
-  <lrMenu></lrMenu>
-  <lrHeader></lrHeader>
-  <!-- services -->
-  <lrServices></lrServices>
-  <!--Facebook post-->
-  <!--lrFacebookPost></lrFacebookPost-->
+    <!-- menu -->
+    <lrMenu/>
 
-  <!-- first contact banner -->
-  <lrContactBanner v-bind:bannerText="this.bannerTexts.bannerOne" :backgroundImage="true"></lrContactBanner>
+    <!-- header -->
+    <lrHeader/>
 
-  <!-- the staff on LR-orebro -->
-  <lrStaff></lrStaff>
+    <!-- contactBubble -->
+    <contactBubble/>
 
-  <!-- review carousell -->
-  <!--lrReviews></lrReviews-->
+    <!-- services -->
+    <lrServices/>
 
- <!-- second contact banner -->
- <lrContactBanner v-bind:bannerText="this.bannerTexts.bannerTwo" :backgroundImage ="false"></lrContactBanner>
+    <!--Facebook post-->
+    <!-- lrFacebookPost/> -->
 
-  <!-- How to get there -->
-  <lrMaps></lrMaps>
+    <!-- first contact banner -->
+    <lrContactBanner v-bind:bannerText="this.bannerTexts.bannerOne" :backgroundImage="true"/>
 
-  <!-- footer of the page -->
-  <lrFooter></lrFooter>
+    <!-- staff -->
+    <lrStaff/>
 
+    <!-- review carousell -->
+    <!--lrReviews/>-->
+
+    <!-- second contact banner -->
+    <lrContactBanner v-bind:bannerText="this.bannerTexts.bannerTwo" :backgroundImage ="false"/>
+
+    <!-- maps -->
+    <lrMaps/>
+
+    <!-- footer -->
+    <lrFooter/>
   </div>
 </template>
 
@@ -87,27 +93,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-    html {
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-    }
-    *, *:before, *:after {
-            -webkit-box-sizing: inherit;
-                    box-sizing: inherit;
-    }
-    body {
-      position:relative;
-    }
-    .contact {
-      z-index: 900;
-      right: 10px;
-      position:fixed;
-      top: 490px;
-    }
-    /* ****************** MEDIAQUERIES ****************** */
-  @media screen and (max-width: $tablet - 1px) {
-    .lrHeaderLine {
-      width: 50%;
-    }
+  html {
+    box-sizing: border-box;
   }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {
+    position: relative;
+  }
+  #contact-bubble {
+    z-index: 900;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+  }
+  /* ****************** MEDIAQUERIES ****************** */
+@media screen and (max-width: $tablet - 1px) {
+  .lrHeaderLine {
+    width: 50%;
+  }
+}
 </style>

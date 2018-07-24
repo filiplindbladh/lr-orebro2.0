@@ -186,8 +186,8 @@ li.tab:hover .title {
   color:black;
 }
 .leadText {
-  margin-bottom:40px;
-  width:70%;
+  width: 95%;
+  margin-right: 20px;
 }
 .v-tab {
   min-height: 100%;
@@ -227,10 +227,12 @@ li.tab:hover .title {
   .quote {
     h3 {
       font-size: 5vw;
+      text-align: left;
     }
   }
   .leadText {
-    width:100%;
+    width: 100%;
+    text-align: center;
   }
 }
 @media screen and (max-width: 920px ) {
@@ -238,7 +240,7 @@ li.tab:hover .title {
     flex-direction: column;
   }
   .paragraph {
-    width:95%;
+    width: 100%;
   }
 }
 </style>
