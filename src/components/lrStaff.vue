@@ -58,11 +58,6 @@ export default {
       let staff = this.posts.map(posts => posts.acf)
       return staff.reverse()
     }
-  },
-  watch: {
-    staffList () {
-      console.log('staff:', this.staffList)
-    }
   }
 }
 </script>
