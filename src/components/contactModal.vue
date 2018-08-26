@@ -8,13 +8,12 @@
                 <button class="delete" aria-label="close" @click='close'></button>
                 </header>
                 <section class="modal-card-body">
-                <h1>Hej</h1>
-                <img src="../img/waving-hand.png">
-                <p>Vad kan vi hjälpa dig med? Skriv ett meddelande så kontaktar vi dig. Önskas en offert vänligen bifoga antal anställda samt fakturor per månad.</p>
+                <h4>Hej, vad kan vi hjälpa dig med?</h4>
+                <p>Skriv ett meddelande så kontaktar vi dig. Önskas en offert vänligen bifoga antal anställda samt fakturor per månad.</p>
                 <form id="gform" form="form" method="POST" action="https://formspree.io/hej@lr-orebro.se">
                     <div class="control has-icons-left">
                         <p :class="{ 'control': true }">
-                            <input v-validate="'required|email'" :class="{'input': true, 'is-danger': errors.has('email') }" name="email" type="text" placeholder="Email">
+                            <input required v-validate="'required|email'" :class="{'input': true, 'is-danger': errors.has('email') }" name="email" type="text" placeholder="Email">
                             <span v-show="errors.has('email')" class="help is-danger">{{ errors.first('email') }}</span>
                         </p>
                     <span class="icon is-left">
@@ -25,11 +24,11 @@
                     <div class="field is-grouped is-expanded">
                         <div class="control">
                             <label class="label">Årsomsättning (mKr):</label>
-                            <input class="input valueOne" type="number" name="Omsattning" v-model="valueOne">
+                            <input class="input valueOne" type="number" name="Omsattning" v-model="this.returnValueOne">
                         </div>
                         <div class="control">
                             <label class="label">Anställda:</label>
-                            <input class="input valueTwo" type="number" name="Anstallda" v-model="valueTwo">
+                            <input class="input valueTwo" type="number" name="Anstallda" v-model="this.returnValueTwo">
                         </div>
                         <div class="control">
                             <label class="label">Organisationsnummer:</label>
@@ -59,6 +58,14 @@ export default {
     close () {
       this.$emit('closeRequest')
     }
+  },
+  computed: {
+    returnValueOne () {
+      return this.valueOne
+    },
+    returnValueTwo () {
+      return this.valueTwo
+    }
   }
 }
 </script>
@@ -85,6 +92,9 @@ form {
 .modal-card {
   max-width: 100%;
   max-height: 100%;
+}
+.modal-card-body p {
+  padding-bottom: 5%;
 }
 .values {
   .control {
