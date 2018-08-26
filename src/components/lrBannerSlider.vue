@@ -60,49 +60,45 @@ export default {
 
 <style lang="scss">
   .bannerSlider {
-    width:100%;
-    display:-webkit-box;
-    display:-ms-flexbox;
+    width: 100%;
     display:flex;
-    -webkit-box-orient:horizontal;
-    -webkit-box-direction:normal;
-        -ms-flex-direction:row;
-            flex-direction:row;
-    -ms-flex-pack:distribute;
-        justify-content:space-around;
+    flex-direction:row;
+    justify-content:space-around;
+    position: relative;
   }
   .bannerButton {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack:center;
-        -ms-flex-pack:center;
-            justify-content:center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     i {
       margin-left:10px;
     }
   }
   .bannerSliderContainer {
     background-color:$grey;
-    width:100%;
+    width: 100%;
     height: auto;
-    padding-bottom:40px;
+    min-height: 270px;
+    padding-bottom: 40px;
   }
   .bannerItem {
-    margin-top:30px;
+    margin-top: 30px;
   }
   /* ****************** MEDIAQUERIES ****************** */
   @media screen and (max-width: $tablet - 1px) {
     .bannerSlider {
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     .bannerItem {
-      margin-bottom:30px;
+      margin-bottom: 30px;
     }
     .bannerSlider {
-      padding-bottom:10px;
+      padding-bottom: 10px;
     }
   }
 </style>

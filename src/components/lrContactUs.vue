@@ -16,6 +16,13 @@
           <strong>E-post:</strong> <a :href="'mailto:' + this.contactTexts.epost"> {{ this.contactTexts.epost }} </a> <br/>
           <strong>Växel:</strong> <a :href="'tel:' + this.contactTexts.vaxel"> {{ this.contactTexts.vaxel }} </a>
         </p>
+        <input class="input" type="text" placeholder="Sök..." v-model="search">
+      </div>
+      <!--- search fallback -->
+      <div v-if="this.staffList.length === 0" class="search-fallback">
+        <p>
+          Sökningen gav inget resultat...
+        </p>
       </div>
       <!-- Pictures and info about the staff on LR Örebro -->
       <div class="columns is-mobile is-multiline lrContactPictures">
@@ -47,18 +54,31 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
 export default {
   name: 'lrContactUs',
+  data () {
+    return {
+      search: ''
+    }
+  },
   computed: {
     posts () {
       return this.$store.state.posts
     },
     staffList () {
       let staff = this.posts.map(posts => posts.acf)
-      return staff.reverse()
+      return staff.reverse().filter(
+        (member) => {
+          return (
+            member.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1 ||
+            member.role.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
+          )
+        }
+      )
     },
     pages () {
       return this.$store.state.pages
@@ -91,6 +111,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.input {
+  width: 70%;
+  margin-top: 40px;
+  &:focus {
+    border: none;
+  }
+}
+.search-fallback {
+  width: 70%;
+  margin: 0 auto;
+}
 .quote {
   display: flex;
   align-items: center;

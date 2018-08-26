@@ -16,6 +16,6 @@ export default {
 
 <style lang="scss">
     body {
-      font-family: Oxygen;
+      font-family: 'Oxygen', sans-serif;
     }
 </style>

@@ -6,13 +6,13 @@
             </div>
             <!-- Menu on desktop and lager screens -->
             <div class="menuItems">
-                <router-link to="/">START</router-link>
-                <router-link to="/tjanster">TJÄNSTER</router-link>
-                <router-link to="/om-oss">OM OSS</router-link>
-                <router-link to="/kontakta-oss">KONTAKT</router-link>
-                <router-link to="/lediga-jobb">LEDIGA JOBB</router-link>
-                <router-link to="/online">LR-ONLINE</router-link>
-                <router-link to="/fortnox">FORTNOX</router-link>
+                <router-link router-link-active to="/">START</router-link>
+                <router-link router-link-active to="/tjanster">TJÄNSTER</router-link>
+                <router-link router-link-active to="/om-oss">OM OSS</router-link>
+                <router-link router-link-active to="/kontakta-oss">KONTAKT</router-link>
+                <router-link router-link-active to="/lediga-jobb">LEDIGA JOBB</router-link>
+                <router-link router-link-active to="/online">LR-ONLINE</router-link>
+                <router-link router-link-active to="/fortnox">FORTNOX</router-link>
             </div>
             <div class="smallScreenMenuContainer">
                 <!-- Menu open button -->
@@ -62,12 +62,7 @@ export default {
 
 <style lang="scss">
     #lrMenu {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
         flex-direction: row;
         height: 67px;
         width: 100%;
@@ -79,51 +74,35 @@ export default {
     }
     /* Company logo */
     .lrLogoContainer {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center;
     }
     .lrLogo {
         height: 65px;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center;
     }
     .lrMenuContainer {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
     }
     .menuItems {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: end;
-        -ms-flex-pack: end;
         justify-content: flex-end;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
         flex-direction: row;
         width: 100%;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center;
         a {
-            -webkit-transition: all .3s ease-in-out;
-            -o-transition: all .3s ease-in-out;
             transition: all .3s ease-in-out;
-            padding: 20px 20px;
+            padding: 10px 20px;
             font-weight: bold;
             font-size: 0.85rem;
             color: $black;
             &:hover {
+                color: $blue;
+            }
+            &.router-link-exact-active {
+                border-bottom: 2px solid $blue;
+                transition: all .3s ease-in-out;
                 color: $blue;
             }
         }
