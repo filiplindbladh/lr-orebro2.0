@@ -1,12 +1,17 @@
 <template>
   <div id="app">
+    <contactBubble/>
     <router-view/>
   </div>
 </template>
 
 <script>
+import contactBubble from '@/components/contactBubble'
 export default {
   name: 'app',
+  components: {
+    contactBubble
+  },
   mounted () {
     this.$store.dispatch('getPages')
     this.$store.dispatch('getPosts')
