@@ -60,30 +60,28 @@
 <script>
 export default {
   name: 'lrContactUs',
-  data () {
+  data() {
     return {
       search: ''
     }
   },
   computed: {
-    posts () {
+    posts() {
       return this.$store.state.posts
     },
-    staffList () {
+    staffList() {
       let staff = this.posts.map(posts => posts.acf)
-      return staff.reverse().filter(
-        (member) => {
-          return (
-            member.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1 ||
-            member.role.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
-          )
-        }
-      )
+      return staff.reverse().filter(member => {
+        return (
+          member.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1 ||
+          member.role.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
+        )
+      })
     },
-    pages () {
+    pages() {
       return this.$store.state.pages
     },
-    contactTexts () {
+    contactTexts() {
       if (this.pages.length > 0) {
         return {
           heading: this.pages[0].acf.contact_heading,
@@ -200,11 +198,11 @@ export default {
     display: block;
   }
 }
-  .mainText {
-  text-align:left;
+.mainText {
+  text-align: left;
 }
 .adress {
-  margin-top:10px;
+  margin-top: 10px;
 }
 /* ****************** MEDIAQUERIES ****************** */
 @media screen and (max-width: $tablet - 1px) {
@@ -214,7 +212,7 @@ export default {
     }
   }
   .contactUs .lrHeaderLine {
-    width:50%;
+    width: 50%;
   }
 }
 @media screen and (max-width: 616px) {
