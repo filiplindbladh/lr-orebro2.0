@@ -6,12 +6,10 @@
       <h3 class="responsiveHeading"> {{ this.workTexts.heading }}</h3>
     </div>
     <div class="positionsInfo container">
-      <div>
+      <div class="main-text-container">
         <p class="mainText" v-html="this.workTexts.text">
         </p>
-      </div>
-      <div>
-        <img :src="this.workTexts.textImg.sizes.large" alt="Lr-Orebro staff">
+        <img v-if="this.workTexts.textImg" :src="this.workTexts.textImg.sizes.large" alt="Lr-Orebro staff">
       </div>
     </div>
     <div class="work-banner" v-if="this.workTexts.showBanner">
@@ -81,7 +79,6 @@ export default {
 <style scoped lang="scss">
 .positionsHeader {
   margin-top: 67px;
-  //background-image: url("../img/positionsHeader.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -101,22 +98,26 @@ export default {
 }
 .positionsInfo {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
   padding: 40px;
   width: 100%;
-  div {
-    width: 50%;
-    flex-basis: 50%;
+  .main-text-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .mainText {
+      max-width: 930px;
+      text-align: left;
+    }
     img {
       margin-top: 20px;
+      width: 70%;
     }
-  }
-  .mainText {
-    width: 95%;
-    text-align: left;
   }
   .lrHeaderLine {
     background-color: $red;
@@ -134,7 +135,7 @@ export default {
   background-color: $grey;
   width: 100%;
   height: auto;
-  padding: 20px;
+  padding: 40px 20px;
   .fa-briefcase {
     font-size: 30px;
   }
@@ -143,6 +144,7 @@ export default {
   }
   .leadText {
     width: 70%;
+    max-width: 930px;
     text-align: center;
     margin: 20px 0 20px 0;
   }
@@ -159,9 +161,12 @@ export default {
 @media screen and (max-width: $tablet - 1px) {
   .positionsInfo {
     flex-direction: column;
-    div {
+    .main-text-container {
       width: 100%;
       flex-basis: 50%;
+      img {
+        display: none;
+      }
     }
   }
   .work-banner {
