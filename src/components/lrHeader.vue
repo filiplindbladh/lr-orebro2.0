@@ -2,19 +2,25 @@
   <!-- swiper -->
   <swiper :options="swiperOption">
     <swiper-slide>
-      <div class="section headerOne header overlay" v-bind:style="{ 'background-image': 'url(' + this.headerContent.imageOne.sizes.large + ')' }">
+      <div
+        class="section headerOne header overlay"
+        v-bind:style="{ 'background-image': 'url(' + this.headerContent.imageOne.sizes.large + ')' }"
+      >
         <div class="lrHeader container">
-          <h1> {{ this.headerContent.headingOne }} </h1>
-          <hr class="lrHeaderLineHeader">
+          <h1>{{ this.headerContent.headingOne }}</h1>
+          <hr class="lrHeaderLineHeader" />
           <!-- <a href="/tjanster" id="lr-button-more" class="button is-info is-outlined">LÄS MER</a> -->
         </div>
       </div>
     </swiper-slide>
     <swiper-slide>
-      <div class="section headerThree header overlay" v-bind:style="{ 'background-image': 'url(' + this.headerContent.imageTwo.sizes.large + ')' }">
+      <div
+        class="section headerThree header overlay"
+        v-bind:style="{ 'background-image': 'url(' + this.headerContent.imageTwo.sizes.large + ')' }"
+      >
         <div class="lrHeader container">
-          <h2> {{ this.headerContent.headingTwo }} </h2>
-          <hr class="lrHeaderLineHeader">
+          <h2>{{ this.headerContent.headingTwo }}</h2>
+          <hr class="lrHeaderLineHeader" />
           <!-- <a href="/online" id="lr-button-more" class="button is-info is-outlined">LÄS MER</a> -->
         </div>
       </div>
@@ -26,7 +32,7 @@
 <script>
 export default {
   name: 'lrHeader',
-  data () {
+  data() {
     return {
       swiperOption: {
         spaceBetween: 30,
@@ -43,10 +49,10 @@ export default {
     }
   },
   computed: {
-    pages () {
+    pages() {
       return this.$store.state.pages
     },
-    headerContent () {
+    headerContent() {
       if (this.pages.length > 0) {
         return {
           headingOne: this.pages[5].acf.heading_one,
@@ -72,12 +78,12 @@ export default {
       }
     }
   },
-  mounted () {
-  }
+  mounted() {}
 }
 </script>
 <style lang="scss" scoped>
-h1, h2 {
+h1,
+h2 {
   text-transform: uppercase;
   width: 75%;
 }
@@ -102,6 +108,7 @@ h1, h2 {
 }
 .lrHeader {
   align-items: center;
+  justify-content: center;
   display: flex;
   flex-direction: column;
   h1,
@@ -126,7 +133,8 @@ h1, h2 {
   font-size: 23px;
 }
 @media #{$ipads} {
-  .lrHeader h1, .lrHeader h2 {
+  .lrHeader h1,
+  .lrHeader h2 {
     width: 80%;
   }
 }
