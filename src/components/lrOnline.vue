@@ -14,13 +14,13 @@
     <div class="section container lrOnlineText">
       <p class="mainText" v-html="this.onlineTexts.text"></p>
     </div>
-    <div class="loginContainer">
-      <p class="title">Logga in på Lr-Online</p>
-      <a
-        class="button is-primary"
-        href="https://finsitapp.wolterskluwer.se/External?pe_data=D434259407045475B4A7046415A4071%7C24971089#!/login"
-        target="_blank"
-      >Klicka här för att logga in</a>
+    <div
+      v-for="(section, index) in this.onlineTexts.loginbuttons"
+      :key="index"
+      class="loginContainer"
+    >
+      <p class="title">{{ section.title }}</p>
+      <a class="button is-primary" :href="section.link" target="_blank">{{ section.button }}</a>
     </div>
     <!-- Content on page LR online -->
     <div class="section flex">
@@ -58,7 +58,8 @@ export default {
           heading: this.pages[1].acf.heading,
           text: this.pages[1].acf.text,
           img: this.pages[1].acf.img,
-          imgText: this.pages[1].acf.img_text
+          imgText: this.pages[1].acf.img_text,
+          loginbuttons: this.pages[1].acf.loginbuttons
         }
       } else {
         return {
@@ -74,7 +75,8 @@ export default {
               large: '...'
             }
           },
-          imgText: '...'
+          imgText: '...',
+          loginbuttons: []
         }
       }
     }
